@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:theory_rvp/layout/default_layout.dart';
+import 'package:theory_rvp/screen/future_provider_screen.dart';
 import 'package:theory_rvp/screen/state_notifier_provider_screen.dart';
 import 'package:theory_rvp/screen/state_provider_screen.dart';
+import 'package:theory_rvp/screen/stream_provider_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -31,6 +33,26 @@ class HomeScreen extends StatelessWidget {
               );
             },
             child: Text('StateNotifierProviderScreen'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => FutureProviderScreen(),
+                ),
+              );
+            },
+            child: Text('FutureProviderScreen'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => StreamProviderScreen(),
+                ),
+              );
+            },
+            child: Text('StreamProviderScreen'),
           ),
         ],
       ),
