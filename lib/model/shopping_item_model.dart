@@ -10,4 +10,18 @@ class ShoppingItemModel {
     required this.hasBought,
     required this.isSpicy,
   });
+
+  ShoppingItemModel copywith({
+    String? name,
+    int? qunatity,
+    bool? hasBought,
+    bool? isSpicy,
+  }) {
+    return ShoppingItemModel(
+      name: name ?? this.name,
+      qunatity: qunatity ?? this.qunatity,
+      hasBought: hasBought ?? this.hasBought,
+      isSpicy: isSpicy ?? this.isSpicy,
+    );
+  }
 }
