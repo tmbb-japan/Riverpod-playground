@@ -3,6 +3,7 @@ import 'package:theory_rvp/layout/default_layout.dart';
 import 'package:theory_rvp/screen/family_modifier_screen.dart';
 import 'package:theory_rvp/screen/future_provider_screen.dart';
 import 'package:theory_rvp/screen/listen_provider_screen.dart';
+import 'package:theory_rvp/screen/provider_screen.dart';
 import 'package:theory_rvp/screen/select_provider_screen.dart';
 import 'package:theory_rvp/screen/state_notifier_provider_screen.dart';
 import 'package:theory_rvp/screen/state_provider_screen.dart';
@@ -98,6 +99,16 @@ class HomeScreen extends StatelessWidget {
               );
             },
             child: Text('SelectProviderScreen'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => ProviderScreen(),
+                ),
+              );
+            },
+            child: Text('ProviderScreen'),
           ),
         ],
       ),
