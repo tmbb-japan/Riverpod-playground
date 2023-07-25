@@ -11,12 +11,20 @@ class CodeGenerationScreen extends ConsumerWidget {
     final state1 = ref.watch(gStateProvider);
     final state2 = ref.watch(gStateFutureProvider);
     final state3 = ref.watch(gStateFuture2Provider);
+    final state4 = ref.watch(gStateMultiplyProvider(
+      number1: 10,
+      number2: 20,
+    ));
     return DefaultLayout(
       title: 'CodeGenerationScreen',
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text('State1 : $state1'),
+          Text(
+            'State1 : $state1',
+            textAlign: TextAlign.center,
+          ),
           state2.when(
             data: (data) {
               return Text(
@@ -34,7 +42,7 @@ class CodeGenerationScreen extends ConsumerWidget {
           state3.when(
             data: (data) {
               return Text(
-                'State2 : $data',
+                'State3 : $data',
                 textAlign: TextAlign.center,
               );
             },
@@ -44,6 +52,10 @@ class CodeGenerationScreen extends ConsumerWidget {
             loading: () => Center(
               child: CircularProgressIndicator(),
             ),
+          ),
+          Text(
+            'State4: $state4',
+            textAlign: TextAlign.center,
           ),
         ],
       ),
