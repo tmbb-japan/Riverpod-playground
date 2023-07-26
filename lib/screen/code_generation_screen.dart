@@ -8,6 +8,8 @@ class CodeGenerationScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    print('build');
+
     final state1 = ref.watch(gStateProvider);
     final state2 = ref.watch(gStateFutureProvider);
     final state3 = ref.watch(gStateFuture2Provider);
@@ -15,7 +17,6 @@ class CodeGenerationScreen extends ConsumerWidget {
       number1: 10,
       number2: 20,
     ));
-    final state5 = ref.watch(gStateNotifierProvider);
     return DefaultLayout(
       title: 'CodeGenerationScreen',
       body: Column(
@@ -58,9 +59,18 @@ class CodeGenerationScreen extends ConsumerWidget {
             'State4: $state4',
             textAlign: TextAlign.center,
           ),
-          Text(
-            'State5: $state5',
-            textAlign: TextAlign.center,
+          Consumer(
+            builder: (context, ref, child) {
+              print('builder build');
+              final state5 = ref.watch(gStateNotifierProvider);
+              return Row(
+                children: [
+                  Text('Staet5: $state5'),
+                  if (child != null) child,
+                ],
+              );
+            },
+            child: Text('Hello'),
           ),
           Row(
             children: [
@@ -78,6 +88,15 @@ class CodeGenerationScreen extends ConsumerWidget {
               )
             ],
           ),
+          //Invalidate()
+          ElevatedButton(
+            onPressed: () {
+              ref.invalidate(gStateNotifierProvider);
+            },
+            child: Text(
+              'Invalidate',
+            ),
+          )
         ],
       ),
     );
