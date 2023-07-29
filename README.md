@@ -12,7 +12,7 @@ The following patterns and tools are typically used to make stateManagement more
 
 1. setState()
 2. Provider
-3. `((riverpod))`
+3. `riverpod`
 4. GetX
 5. Redux<br>
 etc...<br>
