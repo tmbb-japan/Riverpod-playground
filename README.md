@@ -19,10 +19,10 @@ etc...<br>
 
 Among of these, the tool that we're dealing with in this repository is **riverpod**
 
-The primary concept behind Riverpod is <mark style= 'background-color: #f1f8ff'> "providers." </mark> Providers are objects that hold some piece of state and allow widgets to access and listen to that state.<br>
+The primary concept behind Riverpod is `providers`. </mark> Providers are objects that hold some piece of state and allow widgets to access and listen to that state.<br>
 This enables you to separate the UI and the business logic more effectively, making the codebase cleaner and easier to maintain.
 
-**The following is a list of provider types used by this repository.**
+`The following is a list of provider types used by this repository.`
 
 * StateProvider
 * StateNotifierProvider
