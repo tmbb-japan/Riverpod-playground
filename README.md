@@ -28,5 +28,5 @@ This enables you to separate the UI and the business logic more effectively, mak
 * StateNotifierProvider
 * FutureProvider
 * StreamProvider
-
-Other functions that can be performed through the riverpod are further recorded later.
+  
+Other features `other than provider` will also be introduced later. Please keep it up!
