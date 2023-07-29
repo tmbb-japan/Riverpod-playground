@@ -12,7 +12,7 @@ The following patterns and tools are typically used to make stateManagement more
 
 1. setState()
 2. Provider
-3. <span style= 'background-color: #f1f8ff'> riverpod </span>
+3. <span style= 'color: #f1f8ff'> riverpod </span>
 4. GetX
 5. Redux<br>
 etc...<br>
