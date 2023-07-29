@@ -1,6 +1,6 @@
 # theory_rvp
 
-This repository is a playground for putting riverpod in my head.
+This repository is a playground for putting the riverpod in my head.
 
 ## what is the riverpod
 To understand this question, you need to know what **statementManagement** is.  <br>
@@ -12,11 +12,21 @@ The following patterns and tools are typically used to make stateManagement more
 
 1. setState()
 2. Provider
-3. riverpod
+3. <mark style= 'background-color: #f1f8ff'>riverpod</mark>
 4. GetX
 5. Redux<br>
 etc...<br>
 
-Among of these, the tool that we're dealing with in this repository is riverpod
+Among of these, the tool that we're dealing with in this repository is **riverpod**
 
-### Riverpod is a stateManagement library
+The primary concept behind Riverpod is<mark style= 'background-color: #f1f8ff'>"providers."</mark> Providers are objects that hold some piece of state and allow widgets to access and listen to that state.<br>
+This enables you to separate the UI and the business logic more effectively, making the codebase cleaner and easier to maintain.
+
+**The following is a list of provider types used by this repository.**
+
+* StateProvider
+* StateNotifierProvider
+* FutureProvider
+* StreamProvider
+
+Other functions that can be performed through the riverpod are further recorded later.
