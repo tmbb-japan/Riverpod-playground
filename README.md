@@ -31,5 +31,5 @@ This enables you to separate the UI and the business logic more effectively, mak
   
 Other features `other than provider` will also be introduced later. Please keep it up!
 
-### StateProvider
-<hr>
+## StateProvider
+
