@@ -4,7 +4,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'code_generation_provider.g.dart';
 
 // 1) 어떤 Provider를 사용할지 결정할 고민 할 필요 없도록
-// Provider, FutureProvider, StreamProvider(x)
+// Provider, FutureProvider, StreamProvider
 // StateNotifierProvider
 
 final _testProvider = Provider<String>((ref) => 'Hello Code Generation');
