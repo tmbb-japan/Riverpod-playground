@@ -25,6 +25,41 @@ Among of these, the tool that we're dealing with in this repository is **riverpo
 
 Most of the features added to `V2` are intended to increase the convenience of code generation, and here are these **three** things.
 
-1. Riverpod determines which provider to choose so that you don't have to worry about which provider to use during code generation.
+1. CodeGeneration
 2. Parameter Class
 3. Consumer Widget
+
+## 1. CodeGeneration
+Riverpod determines which provider to choose so that `you don't have to worry about which provider to use during code generation.`<br>
+
+<details>
+  <summary>Here is the example : </summary>
+  
+`provider`
+```
+final _testProvider = Provider<String>((ref) => 'Hello Code Generation');
+
+@riverpod
+String gState(GStateRef ref) {
+  return 'Hello Code Generation';
+}
+```
+`screen`
+```
+class CodeGenerationScreen extends ConsumerWidget {
+    const CodeGenerationScreen({super.key});
+
+    @override
+    Widget build(BuildContext context, WidgetRef ref) {
+        final state1 = ref.watch(gStateProvider);
+        return DefaultLayout(
+            title: 'CodeGenerationScreen',
+            body: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                Text(
+                    'State1 : $state1',
+                    textAlign: TextAlign.center,
+                ),
+```
+</details>
