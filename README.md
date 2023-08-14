@@ -177,3 +177,75 @@ int gStateMultiply(
 </details>
 
 ## 3. Consumer Widget
+The original storyline was to rebuild the entire screen when the status changes. However, if you implement the consumer widget on the screen, when the data in the consumer widget changes `build only the consumer widget`, not the entire screen resource.<br><br>
+→Widget that allows you to see only locally changed states<br><br>
+
+Let me see the example. Here, as a provider, I'm going to use the state-notifier that I've previously presented as an example and then, i tried putting it in the consumer widget on screen.
+
+<details>
+<summary>
+example:
+</summary>
+
+`provider`
+```
+@riverpod
+class GStateNotifier extends _$GStateNotifier {
+  @override
+  int build() {
+    return 0;
+  }
+
+  increment() {
+    state++;
+  }
+
+  decrement() {
+    state--;
+  }
+}
+```
+
+`screen`
+```
+  Widget build(BuildContext context, WidgetRef ref) {
+    print('build');
+    ...
+          Consumer(
+            builder: (context, ref, child) {
+              print('builder build');
+              final state5 = ref.watch(gStateNotifierProvider);
+              return Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Staet5: $state5'),
+                  if (child != null) child,
+                ],
+              );
+            },
+            // child: Text('Hello'),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  ref.read(gStateNotifierProvider.notifier).increment();
+                },
+                child: Text('Increment'),
+              ),
+              SizedBox(width: 16.0),
+              ElevatedButton(
+                onPressed: () {
+                  ref.read(gStateNotifierProvider.notifier).decrement();
+                },
+                child: Text('Decrement'),
+              )
+            ],
+          ),
+```
+</details>
+
+When I pressed the increment button and the decrement button here, it was confirmed that only the consumer widget part was built separately, considering that the `builder build`, not the `build`, was displayed on the console.
+
+
