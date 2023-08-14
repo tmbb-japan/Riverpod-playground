@@ -7,8 +7,6 @@ part 'code_generation_provider.g.dart';
 // Provider, FutureProvider, StreamProvider
 // StateNotifierProvider
 
-final _testProvider = Provider<String>((ref) => 'Hello Code Generation');
-
 @riverpod
 String gState(GStateRef ref) {
   return 'Hello Code Generation';

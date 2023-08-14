@@ -34,11 +34,9 @@ Riverpod determines which provider to choose so that `you don't have to worry ab
 
 <details>
   <summary>Here is the example : </summary>
-  
+
 `provider`
 ```
-final _testProvider = Provider<String>((ref) => 'Hello Code Generation');
-
 @riverpod
 String gState(GStateRef ref) {
   return 'Hello Code Generation';
@@ -61,5 +59,50 @@ class CodeGenerationScreen extends ConsumerWidget {
                     'State1 : $state1',
                     textAlign: TextAlign.center,
                 ),
+```
+</details>
+If you simply write the provider with Riverpod annotation, and write it like a function, then automatically g.dart file will be created like a below<br><br>
+
+`g.dart`
+
+```
+final gStateProvider = AutoDisposeProvider<String>(
+  gState,
+  name: r'gStateProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$gStateHash,
+);
+```
+Surprisingly, we could see that the provider created is available on the screen in the example above. what a surprise!<br>
+Also, to use a future provider or another provider, simply enter the relevant elements.
+<details>
+<summary>
+example
+</summary>
+
+```
+@riverpod
+Future<int> gStateFuture(GStateFutureRef ref) async {
+  await Future.delayed(Duration(seconds: 3));
+  return 10;
+}
+```
+</details><br>
+
+`Note` that the default value of automatically generated provider is `AutoDispose`, so if you want to keep it even if the screen is moved, you can write down `KeepAlive` as shown in the example.
+<details>
+<summary>
+example
+</summary>
+
+```
+@Riverpod(
+  keepAlive: true,
+)
+Future<int> gStateFuture2(GStateFuture2Ref ref) async {
+  await Future.delayed(Duration(seconds: 3));
+  return 10;
+}
+
 ```
 </details>
