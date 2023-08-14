@@ -21,7 +21,6 @@ class CodeGenerationScreen extends ConsumerWidget {
       title: 'CodeGenerationScreen',
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
             'State1 : $state1',
@@ -64,15 +63,17 @@ class CodeGenerationScreen extends ConsumerWidget {
               print('builder build');
               final state5 = ref.watch(gStateNotifierProvider);
               return Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('Staet5: $state5'),
                   if (child != null) child,
                 ],
               );
             },
-            child: Text('Hello'),
+            // child: Text('Hello'),
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
                 onPressed: () {
@@ -80,6 +81,7 @@ class CodeGenerationScreen extends ConsumerWidget {
                 },
                 child: Text('Increment'),
               ),
+              SizedBox(width: 16.0),
               ElevatedButton(
                 onPressed: () {
                   ref.read(gStateNotifierProvider.notifier).decrement();
