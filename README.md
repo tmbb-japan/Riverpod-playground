@@ -129,3 +129,51 @@ Future<int> gStateFuture2(GStateFuture2Ref ref) async {
 </details>
 
 ## 2. Parameter Class
+Previously, additional data was available through the Family Modifier (multiple data must be added as a list or map). <br>
+You can now use multiple data with Parameter Class inserting it into a family modifier
+<details>
+<summary>
+here is the example:
+</summary>
+
+`provider`
+
+```
+class Parameter {
+  final int number1;
+  final int number2;
+
+  Parameter({
+    required this.number1,
+    required this.number2,
+  });
+}
+
+final _testFamilyProvider = Provider.family<int, Parameter>(
+  (ref, parameter) => parameter.number1 * parameter.number2,
+);
+
+@riverpod
+int gStateMultiply(
+  GStateMultiplyRef ref, {
+  required int number1,
+  required int number2,
+}) {
+  return number1 * number2;
+}
+```
+`screen`
+```
+    final state4 = ref.watch(gStateMultiplyProvider(
+      number1: 10,
+      number2: 20,
+    ));
+
+     Text(
+        'State4: $state4',
+        textAlign: TextAlign.center,
+    ),
+```
+</details>
+
+## 3. Consumer Widget
