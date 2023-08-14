@@ -74,10 +74,10 @@ final gStateProvider = AutoDisposeProvider<String>(
 );
 ```
 Surprisingly, we could see that the provider created is available on the screen in the example above. what a surprise!<br>
-Also, to use a future provider or another provider, simply enter the relevant elements.
+Also, if you want to use another provider, such as a future provider or state notifier, can use it by writing down the corresponding elements.
 <details>
 <summary>
-example
+futureProvider
 </summary>
 
 ```
@@ -85,6 +85,28 @@ example
 Future<int> gStateFuture(GStateFutureRef ref) async {
   await Future.delayed(Duration(seconds: 3));
   return 10;
+}
+```
+</details>
+<details>
+<summary>
+stateNotifier
+</summary>
+
+```
+class GStateNotifier extends _$GStateNotifier {
+  @override
+  int build() {
+    return 0;
+  }
+
+  increment() {
+    state++;
+  }
+
+  decrement() {
+    state--;
+  }
 }
 ```
 </details><br>
@@ -103,6 +125,7 @@ Future<int> gStateFuture2(GStateFuture2Ref ref) async {
   await Future.delayed(Duration(seconds: 3));
   return 10;
 }
-
 ```
 </details>
+
+## 2. Parameter Class
